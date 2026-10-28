@@ -7,8 +7,12 @@ int main(){
     AVL_tree* appTree = new AVL_tree();
 
     appTree->insertApp("Spotify", 4.6);
+    
+    appTree->updateApp("Spotify", 4.1);
+    appTree->getAppInfo("Spotify");
+    //getTopKApps
 
     
-
+    delete appTree;
     return 0;
 }

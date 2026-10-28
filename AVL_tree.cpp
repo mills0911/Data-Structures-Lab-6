@@ -65,3 +65,26 @@ void AVL_tree::insertApp(std::string name, double rating){
         parent->right = new Node(name, rating);
     }
 }
+
+void AVL_tree::updateApp(std::string name, double newRating){
+    // Find node and check if it exist
+    Node* nodeToUpdate = findNodeOrParent(name);
+    if (nodeToUpdate == nullptr) throw std::invalid_argument("Node does not exist\n");
+
+    // If it does exist
+    nodeToUpdate->rating = newRating;
+
+    // Add code to make MaxHeap sort    
+}
+
+void AVL_tree::getAppInfo(std::string name){
+    // Find node and check if it exist
+    Node* node = findNodeOrParent(name);
+    if (node == nullptr) throw std::invalid_argument("Node does not exist\n");
+
+    // If it does exist
+    std::cout << "Rating: " << node->rating 
+        << ", Frequency: " << node->frequency
+        << std::endl;
+
+}
