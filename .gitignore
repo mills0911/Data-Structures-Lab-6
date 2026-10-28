@@ -7,6 +7,10 @@
 *.o
 *.obj
 
+# Local build and editor configuration
+Makefile
+.vscode/
+
 # Precompiled Headers
 *.gch
 *.pch
