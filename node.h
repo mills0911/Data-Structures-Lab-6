@@ -8,6 +8,7 @@ public:
     std::string name;
     double rating;
     int frequency;
+    int balanceFactor;
     
     Node* left;
     Node* right;

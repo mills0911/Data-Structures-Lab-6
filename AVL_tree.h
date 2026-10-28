@@ -6,8 +6,14 @@ private:
     Node* root;
 
     void deleteTree(Node* root);
-    Node* findNodeOrParent(std::string appName);
-    Node* findNodeOrParent(Node* curr, std::string appName);
+    void rotateLeft();
+    void rotateRight();
+    void recalculateBalance();
+    Node* findNode(std::string appName);
+    // Helper Functions
+    Node* findNode(Node* curr, std::string appName);
+    Node* insertApp(std::string name, double rating, Node* curr);
+
 public:
     AVL_tree();
     ~AVL_tree();
