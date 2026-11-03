@@ -1,23 +1,28 @@
-#include "node.h"
+#pragma once
+
 #include <string>
 
-class AVL_tree{
-private:
-    Node* root;
+#include "Tnode.h"
 
-    void deleteTree(Node* root);
-    void rotateLeft();
-    void rotateRight();
+class AVL_tree {
+private:
+    Tnode* root;
+    int getBalance(Tnode* node);
+    int height(Tnode* node);
+    void deleteTree(Tnode* node);
     void recalculateBalance();
-    Node* findNode(std::string appName);
-    // Helper Functions
-    Node* findNode(Node* curr, std::string appName);
-    Node* insertApp(std::string name, double rating, Node* curr);
+    Tnode* rotateLeft(Tnode* rotationPoint);
+    Tnode* rotateRight(Tnode* rotationPoint);
+
+    Tnode* findNode(Tnode* node, const std::string& appName);
+    Tnode* insertApp(const std::string& name, double rating, Tnode* node);
 
 public:
     AVL_tree();
     ~AVL_tree();
-    void insertApp(std::string name, double rating);
-    void updateApp(std::string name, double newRating);
-    void getAppInfo(std::string name);
+    Tnode* findNode(const std::string& appName);
+
+    void insertApp(const std::string& name, double rating);
+    void updateApp(const std::string& name, double newRating);
+    void getAppInfo(const std::string& name);
 };

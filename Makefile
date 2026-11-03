@@ -1,7 +1,7 @@
 CXX ?= g++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -pedantic
 TARGET := app
-SOURCES := main.cpp AVL_tree.cpp node.cpp
+SOURCES := main.cpp AVL_tree.cpp Tnode.cpp
 OBJECTS := $(SOURCES:.cpp=.o)
 
 .PHONY: all clean

@@ -1,12 +1,11 @@
 #include <string>
-#include "node.h"
+#include "Tnode.h"
 
-Node::Node(std::string name, double rating) {
+Tnode::Tnode(std::string name, double rating) {
     this->name = name;
     this->rating = rating;
     frequency = 1;
-    int balanceFactor = 0;
-
+    height = 1;
 
     left = nullptr;
     right = nullptr;
