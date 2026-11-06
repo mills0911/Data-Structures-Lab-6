@@ -2,10 +2,20 @@
 #include <iostream>
 #include <stdexcept>
 #include "AVL_tree.h"
+#include "MaxHeap.h"
+
+static void populateHeap(Tnode* node, Maxheap& heap)
+{
+    if (node == pullptr) return;
+    heap.insert(node);
+    populateHeap(node->left, heap);
+    populateHeap(node->right, heap);
+}
 
 // Helper functions
 Tnode *AVL_tree::findNode(const std::string &appName) { return findNode(root, appName); }
 void AVL_tree::insertApp(const std::string &name, double rating) { root = insertApp(name, rating, root); }
+
 
 // Creation
 AVL_tree::AVL_tree() : root(nullptr) {};
@@ -95,6 +105,7 @@ void AVL_tree::updateApp(const std::string &name, double newRating)
         throw std::out_of_range("Node does not exist\n");
 
     nodeToUpdate->rating = newRating;
+	nodeToUpdate->frequency++;
 }
 
 void AVL_tree::getAppInfo(const std::string &name)
@@ -147,3 +158,34 @@ Tnode *AVL_tree::rotateRight(Tnode *rotPoint)
 }
 
 void AVL_tree::recalculateBalance() {}
+
+void AVL_tree::getTopKApps(int k)
+{
+    if (root == nullptr || k <= 0)
+    {
+        std::cout << "=>[]" << std::endl;
+        return
+    }
+	// create a max heap to store the nodes based on their frequency
+    MaxHeap maxHeap(100);
+
+	//recursively populate the max heap with nodes from the AVL tree
+	populateHeap(root, maxHeap);
+
+	int totalAvailable = maxHeap.getSize();
+	int countToExtract = (k > totalAvailable) ? totalAvailable : k;
+
+	// print top k apps in the required format
+	std::cout << "=>[";
+	for (int i = 0; i < countToExtract; i++)
+	{
+		Tnode* topApp = maxHeap.extractMax();
+        if (topApp != nullptr)
+        {
+			std::cout << "\"" << topApp->name << "\"";
+			if (i < countToExtract - 1)
+				std::cout << ", ";
+        }
+	}
+	std::cout << "]" << std::endl;
+}

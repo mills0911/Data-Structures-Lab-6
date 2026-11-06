@@ -9,7 +9,7 @@ int main(){
     try{
         appTree->insertApp("Spotify", 4.6);
         appTree->insertApp("Youtube", 4.9);
-        appTree->insertApp("DATA", 4.2);
+        appTree->insertApp("Data", 4.2);
 
         appTree->updateApp("Spotify", 4.1);
 
@@ -25,7 +25,7 @@ int main(){
     }
 
     //getTopKApps
-
+	appTree->getTopKApps(2);
     
     delete appTree;
     return 0;

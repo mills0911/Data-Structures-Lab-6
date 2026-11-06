@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Tnode.h"
+#include "MaxHeap.h"
 
 class AVL_tree {
 private:
@@ -25,4 +26,5 @@ public:
     void insertApp(const std::string& name, double rating);
     void updateApp(const std::string& name, double newRating);
     void getAppInfo(const std::string& name);
+    void getTopKApps(int numToPrint);
 };
