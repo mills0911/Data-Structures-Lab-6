@@ -4,9 +4,9 @@
 #include "AVL_tree.h"
 #include "MaxHeap.h"
 
-static void populateHeap(Tnode* node, Maxheap& heap)
+static void populateHeap(Tnode* node, MaxHeap& heap)
 {
-    if (node == pullptr) return;
+    if (node == nullptr) return;
     heap.insert(node);
     populateHeap(node->left, heap);
     populateHeap(node->right, heap);
@@ -164,7 +164,7 @@ void AVL_tree::getTopKApps(int k)
     if (root == nullptr || k <= 0)
     {
         std::cout << "=>[]" << std::endl;
-        return
+        return;
     }
 	// create a max heap to store the nodes based on their frequency
     MaxHeap maxHeap(100);

@@ -1,4 +1,4 @@
-#include MaxHeap.h
+#include "MaxHeap.h"
 
 MaxHeap::MaxHeap(int cap) :capacity(cap), size(0) 
 {
@@ -13,6 +13,11 @@ MaxHeap::~MaxHeap()
 bool MaxHeap::isEmpty() const
 {
 	return size == 0;
+}
+
+int MaxHeap::getSize() const
+{
+	return size;
 }
 
 //This is so that the higher ratings would come first and any tie breaker is done by frequency

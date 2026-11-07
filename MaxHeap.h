@@ -20,4 +20,7 @@ public:
     void insert(Tnode* node);
     Tnode* extractMax();
     bool isEmpty() const;
-}
+    int getSize() const;
+};
+
+#endif
