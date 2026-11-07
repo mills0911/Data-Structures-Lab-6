@@ -2,33 +2,33 @@
 #include <iostream>
 #include <stdexcept>
 #include "AVL_tree.h"
-int main(){
+int main()
+{
     
     // Make a pointer to a AVL tree THIS WILL HOLD ALL THE APPS
     AVL_tree* appTree = new AVL_tree();
-    try{
+    try
+		{
         appTree->insertApp("Spotify", 4.6);
-        appTree->insertApp("Youtube", 4.9);
-        appTree->insertApp("Data", 4.2);
+        appTree->insertApp("Apple Music", 4.5);
+        appTree->insertApp("Youtube", 4.7);
 
-        appTree->updateApp("Spotify", 4.1);
+        appTree->updateApp("Spotify", 4.8);
 
-        appTree->getAppInfo("Spotify");
-        appTree->getAppInfo("Youtube");
-        appTree->getAppInfo("Data");
-        appTree->getAppInfo("Youtube");
+        std::cout<<"getAPPInfo(\"Spotify\"): ";
+		appTree->getAppInfo("Spotify");
+
+		std::cout<<"getTopKApps(2): ";
+		appTree->getTopKApps(2);
         
-    } catch(const std::out_of_range& error){
-        std::cerr << error.what() << '\n';
-    } catch(const std::invalid_argument& error){
-        std::cerr << error.what() << '\n';
-    }
+    	} 
+	catch(const std::exception& e)
+		{
+		std::cer<<e.what()<< '\n';
+    	}
 
-    //getTopKApps
-	appTree->getTopKApps(2);
-    
-    delete appTree;
-    return 0;
+	delete appTree:
+	return 0;
 }   
 
 
