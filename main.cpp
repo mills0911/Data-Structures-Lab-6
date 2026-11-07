@@ -24,10 +24,10 @@ int main()
     	} 
 	catch(const std::exception& e)
 		{
-		std::cer<<e.what()<< '\n';
+		std::cerr<<e.what()<< '\n';
     	}
 
-	delete appTree:
+    delete appTree;
 	return 0;
 }   
 
